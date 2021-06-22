@@ -44,7 +44,8 @@ function showDetails(pokemon) {
 
 return {
    add: add,
-   getAll: getAll
+   getAll: getAll,
+   addListItem: addListItem
 };
 })();
 
