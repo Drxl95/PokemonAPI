@@ -74,6 +74,54 @@ pokemonRepository.loadList().then(function() {
    });
 });
 
+let pokemonModal = (function() {
+   let modalContainer = document.querySelector('#modal-container');
+   function showModal(title, text) { //specifying a title and description for each 
+      modalContainer.innerHTML = "";
+      let modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      let closeButtonElement = document.createElement('button'); //creates button to close modal
+      closeButtonElement.classList.add('modal-close');
+      closeButtonElement.innerText = 'Close';
+      closeButtonElement.addEventListener('click', hidemodal); //when button clicked modal closes
+
+      let titleElement = document.createElement('h1'); //creates title
+      titleElement.innerText = title;
+
+      let contentElement = document.createElement('p'); //creates description
+      contentElement.innerText = text;
+
+
+      modal.appendChild(closeButtonElement);
+      modal.appendChild(titleElement);
+      modal.appendChild(contentElement);
+      modalContainer.appendChild(modal);
+
+      modalContainer.classList.add('is visible');  //makes class visible when modal is open
+   }
+   
+   function hideModal() {
+      modalContainer.classList.remove('is-visible');  //removes visibility of class when modal is closed
+   }
+
+   window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalContainer.classList.conntains('is-visible')) { //if user presses escape key, close modal
+         hideModal();
+      }
+   });
+   modalContainer.addEventListener('click', (e) => { //closes modal if user clicks outside of it
+      let target = e.target;
+      if (target === modalContainer) {
+         hideModal();
+      }
+   });
+
+   document.querySelector('#show-modal').addEventListener('click', () => {
+      showModal(showDetails(pokemon));
+   });
+})();
+
 
 
 
