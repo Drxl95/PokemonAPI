@@ -2,6 +2,8 @@
 let pokemonRepository = (function () {
    let pokemonList = [];
    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+   let modalContainer = document.querySelector('#modal-container');
+
 
 function getAll() {
    return pokemonList;
@@ -21,11 +23,7 @@ function addListItem(pokemon) {
       showDetails(pokemon)
    });
 }
-function showDetails(pokemon) {
-   loadDetails(pokemon).then(function () {
-      console.log(pokemon);
-   });
-   }
+
 
 function loadList() {
    return fetch(apiUrl).then(function (response) {
@@ -41,22 +39,71 @@ function loadList() {
    }).catch(function (e) {
       console.error(e);
    })
-}
+   }
+   
+   function loadDetails(item) {
+      let url = item.detailsUrl;
+      return fetch(url).then(function (response) {
+         return response.json();
+      }).then(function (details) {
+         item.imageUrl = details.sprites.front_default;
+         item.height = details.height;
+         item.types = details.types;
+      }).catch(function (e) {
+         console.error(e);
+      });
+   }
 
-function loadDetails(item) {
-   let url = item.detailsUrl;
-   return fetch(url).then(function (response) {
-      return response.json();
-   }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types;
-   }).catch(function (e) {
-      console.error(e);
+
+function showModal(name, details) {
+   modalContainer.innerHTML = '';
+   let modal = document.createElement('div');
+   modal.classList.add('modal');
+    let closeButtonElement = document.createElement('button'); //creates button to close modal
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal); //when button clicked modal closes
+
+    let titleElement = document.createElement('h1'); //creates title
+    titleElement.innerText = name;
+
+    let contentElement = document.createElement('p'); //creates description
+    contentElement.innerText = details;
+
+
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');  //makes class visible when modal is open
+ }
+ 
+ function hideModal() {
+    modalContainer.classList.remove('is-visible');  //removes visibility of class when modal is closed
+ }
+
+ window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) { //if user presses escape key, close modal
+       hideModal();
+    }
+ });
+ modalContainer.addEventListener('click', (e) => { //closes modal if user clicks outside of it
+    let target = e.target;
+    if (target === modalContainer) {
+       hideModal();
+    }
+ });
+
+ document.querySelector('.pokemon-list').addEventListener('click', () => {
+   showModal();
+ });
+
+ function showDetails(pokemon) {
+   loadDetails(pokemon).then(function () {
+      return showModal();
    });
 }
-
-
 return {
    add: add,
    getAll: getAll,
@@ -64,7 +111,9 @@ return {
    loadList: loadList,
    loadDetails: loadDetails
 };
+
 })();
+
 
 
 pokemonRepository.loadList().then(function() {
@@ -74,54 +123,53 @@ pokemonRepository.loadList().then(function() {
    });
 });
 
-let pokemonModal = (function() {
-   let modalContainer = document.querySelector('#modal-container');
-   function showModal(title, text) { //specifying a title and description for each 
-      modalContainer.innerHTML = "";
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
+// let pokemonModal = (function() {
+//    let modalContainer = document.querySelector('#modal-container');
+//    function showModal(title, text) { //specifying a title and description for each 
+//       modalContainer.innerHTML = "";
+//       let modal = document.createElement('div');
+//       modal.classList.add('modal');
 
-      let closeButtonElement = document.createElement('button'); //creates button to close modal
-      closeButtonElement.classList.add('modal-close');
-      closeButtonElement.innerText = 'Close';
-      closeButtonElement.addEventListener('click', hidemodal); //when button clicked modal closes
+//       let closeButtonElement = document.createElement('button'); //creates button to close modal
+//       closeButtonElement.classList.add('modal-close');
+//       closeButtonElement.innerText = 'Close';
+//       closeButtonElement.addEventListener('click', hidemodal); //when button clicked modal closes
 
-      let titleElement = document.createElement('h1'); //creates title
-      titleElement.innerText = title;
+//       let titleElement = document.createElement('h1'); //creates title
+//       titleElement.innerText = title;
 
-      let contentElement = document.createElement('p'); //creates description
-      contentElement.innerText = text;
+//       let contentElement = document.createElement('p'); //creates description
+//       contentElement.innerText = text;
 
 
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
-      modalContainer.appendChild(modal);
+//       modal.appendChild(closeButtonElement);
+//       modal.appendChild(titleElement);
+//       modal.appendChild(contentElement);
+//       modalContainer.appendChild(modal);
 
-      modalContainer.classList.add('is visible');  //makes class visible when modal is open
-   }
+//       modalContainer.classList.add('is visible');  //makes class visible when modal is open
+//    }
    
-   function hideModal() {
-      modalContainer.classList.remove('is-visible');  //removes visibility of class when modal is closed
-   }
+//    function hideModal() {
+//       modalContainer.classList.remove('is-visible');  //removes visibility of class when modal is closed
+//    }
 
-   window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalContainer.classList.conntains('is-visible')) { //if user presses escape key, close modal
-         hideModal();
-      }
-   });
-   modalContainer.addEventListener('click', (e) => { //closes modal if user clicks outside of it
-      let target = e.target;
-      if (target === modalContainer) {
-         hideModal();
-      }
-   });
+//    window.addEventListener('keydown', (e) => {
+//       if (e.key === 'Escape' && modalContainer.classList.conntains('is-visible')) { //if user presses escape key, close modal
+//          hideModal();
+//       }
+//    });
+//    modalContainer.addEventListener('click', (e) => { //closes modal if user clicks outside of it
+//       let target = e.target;
+//       if (target === modalContainer) {
+//          hideModal();
+//       }
+//    });
 
-   document.querySelector('#show-modal').addEventListener('click', () => {
-      showModal(showDetails(pokemon));
-   });
-})();
-
+//    document.querySelector('#show-modal').addEventListener('click', () => {
+//       showModal(loadList, loadDetails);
+//    });
+// })();
 
 
 
