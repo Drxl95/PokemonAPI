@@ -4,6 +4,7 @@
 body {
     background-color: lightblue;
 }
+
 #modal-container {
     position: fixed;
     padding: 20px;
@@ -91,15 +92,15 @@ body {
     /* CSS for modal container - add your own desired CSS styles here */
     display: block;
   }
-.pokemon-list {
+.list-group {
     list-style-type: none;
     text-align: center;
     padding-inline-start: 0;
 }
-.pokemon-list li {
+.list-group li {
     width: auto;
 }
-.button-class {
+/*👉.button-class {
     margin: .75rem;
     color: #3d7dca;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -111,7 +112,7 @@ body {
     list-style-type: none;
     text-transform: uppercase;
     border: 6px solid #3d7dca;
-}
+}👈*/
 .modal img {
     width: 50%;
 }

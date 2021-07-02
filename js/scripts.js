@@ -2,7 +2,7 @@
 let pokemonRepository = (function () {
    let pokemonList = [];
    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
-   let modalContainer = document.querySelector('#modal-container');
+   let modalContainer = document.querySelector('#my-modal');
 
 
 function getAll() {
@@ -12,13 +12,17 @@ function add(pokemon) {
    pokemonList.push(pokemon);
 }
 function addListItem(pokemon) {
-   let pokeUl = document.querySelector('.pokemon-list');
+   let pokeUl = document.querySelector('.list-group');
    let listItem = document.createElement('li');
    let button = document.createElement('button');
    button.innerText = pokemon.name;
-   button.classList.add('button-class');
+   button.classList.add('btn');
+   button.classList.add('btn-primary');
+   listItem.classList.add('group-list-item');
    listItem.appendChild(button);
    pokeUl.appendChild(listItem);
+   button.setAttribute("data-target", "#my-modal");
+   button.setAttribute("data-toggle", "modal");
    button.addEventListener('click', function (event) {
       showDetails(pokemon)
    });
@@ -84,15 +88,21 @@ function showModal(pokemon) {
     modal.appendChild(titleElement);
     modal.appendChild(imageElement);
     modal.appendChild(heightElement);
+
+    pokemon.types.forEach((type) => {
+       let typesElement = document.createElement('p');
+       typesElement.innerText = type.type.name;
     modal.appendChild(typesElement);
+    })
+
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');  //makes class visible when modal is open
- }
- 
- function hideModal() {
+}
+
+function hideModal() {
     modalContainer.classList.remove('is-visible');  //removes visibility of class when modal is closed
- }
+}
 
  window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) { //if user presses escape key, close modal
@@ -106,7 +116,7 @@ function showModal(pokemon) {
     }
  });
 
- document.querySelector('.pokemon-list').addEventListener('click', () => {
+ document.querySelector('.list-group').addEventListener('click', () => {
    showModal(pokemon);
  });
 
