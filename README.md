@@ -6,7 +6,7 @@ Simply click on the Pokemon name to view a modal containing a picture and brief 
 __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 
 ### __Dependencies__
-    * HTML
-    * CSS
-    * Javascript
-    * jQuery
+* HTML
+* CSS
+* Javascript
+* jQuery
