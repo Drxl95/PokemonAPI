@@ -25,13 +25,14 @@ margin-left: 1rem;
 }
 .modal-header {
 border-bottom: 1px solid black;
+justify-content: space-between;
 }
 .modal-content {
 background-color: #ffcb05!important;
 border: #3d7dca solid 6px!important;
 text-align: center;
 }
-button {
+.modal-close {
    background-color: 	#ee1515;
    border: white solid 2px;
     color: white;
@@ -39,15 +40,19 @@ padding: 8.5px 16.5px;
   border-radius: 50%;
   font-size: 1.25rem;
 }
-button:active {
+.modal-close:active {
 border-color: 	#ee1515;
   background-color: white;
   color: 	#ee1515;
 }
 
+.modal-title h1 {
+  margin-bottom: 0;
+}
+
 .modal h1 {
   margin-top: 0;
-  text-align: center;
+  text-align: left;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-transform: uppercase;
   font-size: 3rem;
@@ -57,11 +62,12 @@ border-color: 	#ee1515;
 
 .modal p {
   margin-bottom: 0;
-  text-align: center;
+  text-align: left;
   font-weight: 700;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #3d7dca;
+  text-transform: capitalize;
 }
 
 
@@ -72,7 +78,10 @@ border-color: 	#ee1515;
           padding-inline-start: 0;
   margin: 2rem;
   text-transform: capitalize;
-
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
 }
 .list-group li {
   width: auto;
@@ -82,11 +91,12 @@ border-color: 	#ee1515;
 
 .btn {
 /*👉  background-color: 	#cc1313;👈*/
-
 background-color: #db0606;
 border: black solid 2px;
 color: white;
 text-transform: capitalize;
+padding: 24px 72px;
+width: 300px;
 }
 .btn:hover {
 background-color: white;
@@ -100,37 +110,51 @@ border: black 2px solid;
 }
 
 .btn-primary {
-width: 50%;
 font-size: 1.5rem;
 }
+
 .btn-primary:hover {
 color: 	#ee1515;
 background-color: white;
 }
-@media screen and (max-width: 700px) {
-  .btn-primary {
-    width: 70%;
-  }
+#search-button {
+  background-color: #db0606;
+  border: black solid 2px;
+  color: white;
+  padding: 4px 25px;
+
 }
 
+@media screen and (max-width: 727px) {
+  .btn {
+    width: 250px;
+  }
+}
+@media screen and (max-width:627px) {
+  .btn {
+    padding: 10px 10px;
+    width: 150px;
+    font-size: 1.15rem;
+  }
+}
 @media screen and (max-width:575px) {
   .form-inline {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .btn {
-    width: 50%;
+  #search-button  {
+    margin-top: .5rem;
+    padding: 4px 42px;
   }
+
   .modal p {
     font-size: 1.5rem!important;
   }
 }
 
 @media screen and (max-width:500px) {
-  .btn-primary {
-    width: 100%;
-  }
+
   .modal p {
     font-size: 1.5rem!important;
   }
@@ -145,13 +169,17 @@ background-color: white;
 }
 
 @media screen and (max-width:450px) {
+  .modal-header {
+    align-items: center!important;
+  }
     .modal-title h1 {
       font-size: 1.75rem;
+      
     }
     button {
       font-size: .85rem;
     }
     .modal p {
-      font-size: 1.25rem!important;
+      font-size: 1rem!important;
     }
 }

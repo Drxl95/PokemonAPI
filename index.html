@@ -6,7 +6,7 @@
     <title>PokemonAPI</title>
     <link href="img/Poke_Ball.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="dist/styles.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
 <!--Nav-->
@@ -14,7 +14,7 @@
       <a class="navbar-brand">PokemonAPI<img class="navbar-logo" src="img/Poke_Ball.png"></a>
       <form class="form-inline">
         <input id="searchIn" class="form-control mr-sm-2" type="search" placeholder="Search for a Pokemon" aria-label="Search for Pokemon">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button id="search-button" type="submit">Search</button>
       </form>
     </nav>
 
@@ -29,7 +29,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"  aria-labelledby="pokemonModalLabel">Modal title</h5>
-            <button type="button" id=".modal-close" data-dismiss="modal" aria-label="Close">X</button>
+            <button type="button" class="modal-close" id=".modal-close" data-dismiss="modal" aria-label="Close">X</button>
           </div>
           <div class="modal-body"></div>
         </div>
@@ -45,6 +45,6 @@
     <script src="js/fetch-polyfill.js"></script>
 
 <!--JS-->
-      <script src="dist/scripts.min.js"></script>
+      <script src="js/scripts.js"></script>
   </body>
 </html>

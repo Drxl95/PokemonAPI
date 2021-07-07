@@ -102,15 +102,15 @@ let pokemonRepository = (function () {
 
          //create element for pokemon height 
          // eslint-disable-next-line no-undef
-         let heightElement = $("<p>" + "Height : " + item.height + "</p>");
+         let heightElement = $("<p>" + "Height: " + item.height + "</p>");
 
          //pokemon types
          // eslint-disable-next-line no-undef
-         let typesElement = $("<p>" + "Types : " + item.types + "</p>");
+         let typesElement = $("<p>" + "Types: " + item.types + "</p>");
 
          //pokemon abilities 
          // eslint-disable-next-line no-undef
-         let typesAbilities = $("<p>" + "Abilities : " + item.abilities + "</p>");
+         let typesAbilities = $("<p>" + "Abilities: " + item.abilities + "</p>");
 
          //eventlistener to for search  bar
          searchInput.addEventListener('input', function () {
