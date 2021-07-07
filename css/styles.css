@@ -17,6 +17,7 @@ body {
 }
 .modal-header {
   border-bottom: 1px solid black;
+
 }
 .modal-content {
   background-color: #ffcb05!important;
@@ -127,13 +128,13 @@ font-size: 1.5rem;
 
   @media screen and (max-width:400px) {
       .modal-title h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
       button {
         font-size: .85rem;
       }
       .modal p {
-        font-size: 1.25rem!important;
+        font-size: 1rem!important;
       }
    
   }
