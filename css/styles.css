@@ -73,6 +73,7 @@ button:active {
 
 .btn {
 /*👉  background-color: 	#cc1313;👈*/
+
 background-color: #db0606;
   border: black solid 2px;
   color: white;
@@ -102,12 +103,27 @@ font-size: 1.5rem;
       width: 70%;
     }
   }
+
+  @media screen and (max-width:575px) {
+    .form-inline {
+      justify-content: center;
+    }
+    .btn {
+      width: 50%;
+    }
+  }
+
   @media screen and (max-width:500px) {
     .btn-primary {
       width: 100%;
     }
   }
 
+  @media screen and (max-width: 493px) {
+    .justify-content-between {
+      justify-content: center!important;
+  }
+  }
 
   @media screen and (max-width:400px) {
       .modal-title h1 {

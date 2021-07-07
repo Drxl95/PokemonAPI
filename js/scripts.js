@@ -3,7 +3,6 @@ let pokemonRepository = (function () {
    let pokemonList = [];
    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
    let searchInput = document.querySelector("#searchIn");
-   let pokemon = "";
 
    function add(pokemon) {
       pokemonList.push(pokemon);
@@ -25,7 +24,7 @@ let pokemonRepository = (function () {
       button.setAttribute("data-toggle", "modal");
       listItem.appendChild(button);
       pokeUl.appendChild(listItem);
-      button.addEventListener('click', function (event) {
+      button.addEventListener('click', function () {
          showDetails(pokemon)
       });
    }
@@ -63,6 +62,7 @@ let pokemonRepository = (function () {
          }
          //pokemon abilities
          item.abilities = [];
+         // eslint-disable-next-line no-redeclare
          for (var i = 0; i < details.abilities.length; i++) {
             item.abilities.push(details.abilities[i].ability.name);
          }
@@ -79,30 +79,37 @@ let pokemonRepository = (function () {
 
    function showModal(item) {
       pokemonRepository.loadDetails(item).then(function () {
+         // eslint-disable-next-line no-undef
          let modalBody = $(".modal-body");
+         // eslint-disable-next-line no-undef
          let modalTitle = $(".modal-title");
-         let modalHeader = $(".modal-header");
 
          //clears previous content in modal
          modalTitle.empty();
          modalBody.empty();
 
          //create elenebtb for pokemon name
+         // eslint-disable-next-line no-undef
          let nameElement = $("<h1>" + item.name + "</h1>");
 
          //create img element
+         // eslint-disable-next-line no-undef
          let imageElementFront = $('<img class="modal-img" style="width:50%">');
          imageElementFront.attr("src", item.imageUrl);
+         // eslint-disable-next-line no-undef
          let imageElementBack = $('<img class="modal-img" style="width:50%">');
          imageElementBack.attr("src", item.imageUrlBack);
 
          //create element for pokemon height 
+         // eslint-disable-next-line no-undef
          let heightElement = $("<p>" + "Height : " + item.height + "</p>");
 
          //pokemon types
+         // eslint-disable-next-line no-undef
          let typesElement = $("<p>" + "Types : " + item.types + "</p>");
 
          //pokemon abilities 
+         // eslint-disable-next-line no-undef
          let typesAbilities = $("<p>" + "Abilities : " + item.abilities + "</p>");
 
          //eventlistener to for search  bar
@@ -126,6 +133,7 @@ let pokemonRepository = (function () {
          modalBody.append(typesElement);
          modalBody.append(typesAbilities);
 
+         // eslint-disable-next-line no-undef
          $('#my-modal').modal('toggle');
       });
    }
