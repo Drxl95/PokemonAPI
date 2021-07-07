@@ -122,11 +122,17 @@ background-color: white;
   .btn {
     width: 50%;
   }
+  .modal p {
+    font-size: 1.5rem!important;
+  }
 }
 
 @media screen and (max-width:500px) {
   .btn-primary {
     width: 100%;
+  }
+  .modal p {
+    font-size: 1.5rem!important;
   }
 }
 
