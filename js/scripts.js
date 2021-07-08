@@ -60,12 +60,14 @@ let pokemonRepository = (function () {
          for (var i = 0; i < details.types.length; i++) {
             item.types.push(details.types[i].type.name);
          }
+         item.types = item.types.join(',  ');
          //pokemon abilities
          item.abilities = [];
          // eslint-disable-next-line no-redeclare
          for (var i = 0; i < details.abilities.length; i++) {
             item.abilities.push(details.abilities[i].ability.name);
          }
+         item.abilities = item.abilities.join(',  ');
       }).catch(function (e) {
          console.error(e);
       });
