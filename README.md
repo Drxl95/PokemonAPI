@@ -8,7 +8,11 @@ __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 ##__Features__
  * Navbar that narrows down names
  * Modal 
- * 2 Img of Pokemon, 1 front and one back
+ * 2 Imgs of Pokemon, 1 front and one back
+
+##__Design__
+  * Pokemon themed color scheme/shapes
+  * Pokemon ball favicon
 
 ### __Dependencies__
 * HTML
