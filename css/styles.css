@@ -1,3 +1,4 @@
+
 /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v7.0.29,
@@ -25,7 +26,9 @@ margin-left: 1rem;
 }
 .modal-header {
 border-bottom: 1px solid black;
-justify-content: space-between;
+-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
 }
 .modal-content {
 background-color: #ffcb05!important;
@@ -78,10 +81,18 @@ border-color: 	#ee1515;
           padding-inline-start: 0;
   margin: 2rem;
   text-transform: capitalize;
+display: -webkit-box;
+display: -ms-flexbox;
 display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+    -ms-flex-direction: row;
+        flex-direction: row;
+-ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
 }
 .list-group li {
   width: auto;
@@ -138,6 +149,11 @@ background-color: white;
   }
 }
 @media screen and (max-width:575px) {
+  .justify-content-between {
+    -webkit-box-pack: center!important;
+        -ms-flex-pack: center!important;
+            justify-content: center!important;
+}
   .form-inline {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -170,7 +186,9 @@ background-color: white;
 
 @media screen and (max-width:450px) {
   .modal-header {
-    align-items: center!important;
+    -webkit-box-align: center!important;
+        -ms-flex-align: center!important;
+            align-items: center!important;
   }
     .modal-title h1 {
       font-size: 1.75rem;
