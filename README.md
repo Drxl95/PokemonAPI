@@ -5,6 +5,11 @@ Simply click on the Pokemon name to view a modal containing a picture and brief 
 
 __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 
+##__Features__
+ * Navbar that narrows down names
+ * Modal 
+ * 2 Img of Pokemon, 1 front and one back
+
 ### __Dependencies__
 * HTML
 * CSS
