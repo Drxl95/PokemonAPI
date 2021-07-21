@@ -55,6 +55,7 @@ let pokemonRepository = (function () {
          item.imageUrl = details.sprites.front_default;
          item.imageUrlBack = details.sprites.back_default;
          item.height = details.height;
+         item.weight = details.weight;
          // pokemon types
          item.types = [];
          for (var i = 0; i < details.types.length; i++) {
@@ -68,6 +69,7 @@ let pokemonRepository = (function () {
             item.abilities.push(details.abilities[i].ability.name);
          }
          item.abilities = item.abilities.join(',  ');
+
       }).catch(function (e) {
          console.error(e);
       });
@@ -106,6 +108,8 @@ let pokemonRepository = (function () {
          // eslint-disable-next-line no-undef
          let heightElement = $("<p>" + "Height: " + item.height + "</p>");
 
+         //for pokemon weight
+         let weightElement = $("<p>" + "Weight: " + item.weight + "</p>");
          //pokemon types
          // eslint-disable-next-line no-undef
          let typesElement = $("<p>" + "Types: " + item.types + "</p>");
@@ -132,8 +136,10 @@ let pokemonRepository = (function () {
          modalBody.append(imageElementFront);
          modalBody.append(imageElementBack);
          modalBody.append(heightElement);
+         modalBody.append(weightElement);
          modalBody.append(typesElement);
          modalBody.append(typesAbilities);
+
 
          // eslint-disable-next-line no-undef
          $('#my-modal').modal('toggle');
