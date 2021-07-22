@@ -54,8 +54,9 @@ let pokemonRepository = (function () {
          //Add details to item
          item.imageUrl = details.sprites.front_default;
          item.imageUrlBack = details.sprites.back_default;
-         item.height = details.height;
-         item.weight = details.weight;
+         item.height = details.height / 10;
+         item.weight = details.weight / 10;
+         item.stats = details.stats;
          // pokemon types
          item.types = [];
          for (var i = 0; i < details.types.length; i++) {
@@ -106,10 +107,10 @@ let pokemonRepository = (function () {
 
          //create element for pokemon height 
          // eslint-disable-next-line no-undef
-         let heightElement = $("<p>" + "Height: " + item.height + "</p>");
+         let heightElement = $("<p>" + "Height: " + item.height + "m</p>");
 
          //for pokemon weight
-         let weightElement = $("<p>" + "Weight: " + item.weight + "</p>");
+         let weightElement = $("<p>" + "Weight: " + item.weight + "kgs</p>");
          //pokemon types
          // eslint-disable-next-line no-undef
          let typesElement = $("<p>" + "Types: " + item.types + "</p>");
@@ -165,6 +166,24 @@ pokemonRepository.loadList().then(function () {
    pokemonRepository.getAll().forEach(function (pokemon) {
       pokemonRepository.addListItem(pokemon);
    });
+});
+
+jQuery(document).ready(function () {
+   var offset = 220;
+   var duration = 500;
+   jQuery(window).scroll(function () {
+      if (jQuery(this).scrollTop() > offset) {
+         jQuery('.back-to-top').fadeIn(duration);
+      } else {
+         jQuery('.back-to-top').fadeOut(duration);
+      }
+   });
+
+   jQuery('.back-to-top').click(function (event) {
+      event.preventDefault();
+      jQuery('html, body').animate({ scrollTop: 0 }, duration);
+      return false;
+   })
 });
 
 

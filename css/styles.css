@@ -136,6 +136,28 @@ background-color: white;
 
 }
 
+.top_link_position {
+  display: block;
+position: fixed;
+  bottom: 2%;
+  right: 1%;
+  z-index: 600;
+}
+
+
+.top_btn {
+	border: 1.5px solid white;
+	background: #db0606;
+	padding: .5rem .5rem;
+	color: white;
+	font-weight: bolder;
+	text-transform: uppercase;
+}
+
+
+
+
+
 @media screen and (max-width: 727px) {
   .btn {
     width: 250px;
