@@ -139,8 +139,8 @@ background-color: white;
 .top_link_position {
   display: block;
 position: fixed;
-  bottom: 2%;
-  right: 1%;
+  bottom: 4%;
+  right: 3%;
   z-index: 600;
 }
 
