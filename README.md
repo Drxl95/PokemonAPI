@@ -6,12 +6,18 @@ Simply click on the Pokemon name to view a modal containing a picture and brief 
 __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 
 ## __Features__
- * Navbar that narrows down names
- * Modal 
- * 2 Imgs of Pokemon, 1 front and one back
+ * A Nav/Search bar that narrows down searches. 
+ * A Modal appears whe the Pokemon name is clicked on.  This modal displays the Pokemon's name, images, and some stats.
+ * Pokemon stats include:
+    * It's weight and height in metric units (I divided the values by 10)
+    * 2 Imgs of Pokemon, 1 front and one back
+    * Abilities seperated by a comma
+    * Types, also seperated buy commas
+  * Top of page button for easier navigation
 
 ## __Design__
-  * Pokemon themed color scheme/shapes
+  * I chose to make this app appear someonewhat "animated" as this is the nature of the TV show.  I stuck with solid color(Pokemon-themed obviously) and didn't want to implement any realistic images or detailing.  
+  * The close buttons are round to represent the Pokemon balls seen in the show.  
   * Pokemon ball favicon
 
 ### __Dependencies__
@@ -19,3 +25,4 @@ __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 * CSS
 * Javascript
 * jQuery
+* .fetch
