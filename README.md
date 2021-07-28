@@ -5,6 +5,8 @@ Simply click on the Pokemon name to view a modal containing a picture and brief 
 
 __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 
+<img src="img/mockup-poke.jpg" rel="app_mockup">
+
 ## __Features__
  * A Nav/Search bar that narrows down searches. 
  * A Modal appears whe the Pokemon name is clicked on.  This modal displays the Pokemon's name, images, and some stats.
