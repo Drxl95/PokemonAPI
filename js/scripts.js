@@ -168,41 +168,42 @@ pokemonRepository.loadList().then(function () {
    });
 });
 
-$(window).scroll(function () {
-   var height = $(window).scrollTop();
-   if (height > 100) {
-      $('.back-to-top').fadeIn();
-   } else {
-      $('.back-to-top').fadeOut();
-   }
-});
+// $(window).scroll(function () {
+//    var height = $(window).scrollTop();
+//    if (height > 100) {
+//       $('.back-to-top').fadeIn();
+//    } else {
+//       $('.back-to-top').fadeOut();
+//    }
+// });
+// $(document).ready(function () {
+//    $('.back-to-top').click(function (event) {
+//       event.preventDefault();
+//       $("html, body").animate({ scrollTop: 0 }, "slow");
+//       return false;
+//    });
+
+// });
 $(document).ready(function () {
-   $('.back-to-top').click(function (event) {
-      event.preventDefault();
-      $("html, body").animate({ scrollTop: 0 }, "slow");
+   $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+         $('.back-to-top').fadeIn();
+      } else {
+         $('.back-to-top').fadeOut();
+      }
+   });
+
+   $('.back-to-top').click(function () {
+      $("html, body").animate({
+         scrollTop: 0
+      }, 100);
       return false;
    });
 
 });
 
 
-// jQuery(document).ready(function () {
-//    var offset = 220;
-//    var duration = 500;
-//    jQuery(window).scroll(function () {
-//       if (jQuery(this).scrollTop() > offset) {
-//          jQuery('.back-to-top').fadeIn(duration);
-//       } else {
-//          jQuery('.back-to-top').fadeOut(duration);
-//       }
-//    });
 
-//    jQuery('.back-to-top').click(function (event) {
-//       event.preventDefault();
-//       jQuery('html, body').animate({ scrollTop: 0 }, duration);
-//       return false;
-//    })
-// });
 
 
 
