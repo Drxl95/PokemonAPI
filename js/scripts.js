@@ -206,7 +206,7 @@ pokemonRepository.loadList().then(function () {
 let scrollToTop = () => {
    const scrollBtn = document.querySelector('.back-to-top');
 
-   // Shows button when user scrolls down 30px from top of document
+   // Shows button when user scrolls down 100px from top of document
    window.onscroll = () => scrollFunction();
 
    function scrollFunction() {
