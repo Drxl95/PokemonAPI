@@ -184,23 +184,53 @@ pokemonRepository.loadList().then(function () {
 //    });
 
 // });
-$(document).ready(function () {
-   $(window).scroll(function () {
-      if ($(this).scrollTop() > 100) {
-         $('.back-to-top').fadeIn();
+// $(document).ready(function () {
+//    $(window).scroll(function () {
+//       if ($(this).scrollTop() > 100) {
+//          $('.back-to-top').fadeIn();
+//       } else {
+//          $('.back-to-top').fadeOut();
+//       }
+//    });
+
+//    $('.back-to-top').click(function () {
+//       $("html, body").animate({
+//          scrollTop: 0
+//       }, 100);
+//       return false;
+//    });
+
+// });
+
+// Scroll-to-top button
+let scrollToTop = () => {
+   const scrollBtn = document.querySelector('.back-to-top');
+
+   // Shows button when user scrolls down 30px from top of document
+   window.onscroll = () => scrollFunction();
+
+   function scrollFunction() {
+      if (
+         document.body.scrollTop > 100 ||
+         document.documentElement.scrollTop > 100
+      ) {
+         scrollBtn.style.display = 'block';
       } else {
-         $('.back-to-top').fadeOut();
+         scrollBtn.style.display = 'none';
       }
-   });
+   }
 
-   $('.back-to-top').click(function () {
-      $("html, body").animate({
-         scrollTop: 0
-      }, 100);
-      return false;
-   });
+   function topFunction() {
+      // For Safari users
+      document.body.scrollTop = 0;
+      // For Chrome, Firefox, IE, Opera
+      document.documentElement.scrollTop = 0;
+   }
 
-});
+   scrollBtn.addEventListener('click', topFunction);
+};
+scrollToTop();
+
 
 
 
