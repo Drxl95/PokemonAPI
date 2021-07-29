@@ -168,70 +168,33 @@ pokemonRepository.loadList().then(function () {
    });
 });
 
-// $(window).scroll(function () {
-//    var height = $(window).scrollTop();
-//    if (height > 100) {
-//       $('.back-to-top').fadeIn();
-//    } else {
-//       $('.back-to-top').fadeOut();
-//    }
-// });
-// $(document).ready(function () {
-//    $('.back-to-top').click(function (event) {
-//       event.preventDefault();
-//       $("html, body").animate({ scrollTop: 0 }, "slow");
-//       return false;
-//    });
+let link = document.getElementById("back-to-top");
+var amountScrolled = 250;
 
-// });
-// $(document).ready(function () {
-//    $(window).scroll(function () {
-//       if ($(this).scrollTop() > 100) {
-//          $('.back-to-top').fadeIn();
-//       } else {
-//          $('.back-to-top').fadeOut();
-//       }
-//    });
+//makes button show
+window.addEventListener('scroll', function (e) {
+   if (this.window.pageYOffset > amountScrolled) {
+      link.classList.add('show');
+   } else {
+      link.className = 'back-to-top';
+   }
+});
 
-//    $('.back-to-top').click(function () {
-//       $("html, body").animate({
-//          scrollTop: 0
-//       }, 100);
-//       return false;
-//    });
+//scrolls to top
+link.addEventListener('click', function (e) {
+   e.preventDefault();
 
-// });
-
-// Scroll-to-top button
-let scrollToTop = () => {
-   const scrollBtn = document.querySelector('.back-to-top');
-
-   // Shows button when user scrolls down 100px from top of document
-   window.onscroll = () => scrollFunction();
-
-   function scrollFunction() {
-      if (
-         document.body.scrollTop > 100 ||
-         document.documentElement.scrollTop > 100
-      ) {
-         scrollBtn.style.display = 'block';
-      } else {
-         scrollBtn.style.display = 'none';
+   var distance = 0 - window.pageYOffset;
+   var increments = distance / (500 / 16);
+   function animateScroll() {
+      window.scrollBy(0, increments);
+      if (window.pageYOffset <= document.body.offsetTop) {
+         clearInterval(runAnimation);
       }
-   }
-
-   function topFunction() {
-      // For Safari users
-      document.body.scrollTop = 0;
-      // For Chrome, Firefox, IE, Opera
-      document.documentElement.scrollTop = 0;
-   }
-
-   scrollBtn.addEventListener('click', topFunction);
-};
-scrollToTop();
-
-
+   };
+   // Loop the animation function
+   var runAnimation = setInterval(animateScroll, 16);
+});
 
 
 
