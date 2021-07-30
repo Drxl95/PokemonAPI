@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v7.0.29,
@@ -100,8 +106,11 @@ display: flex;
   
 }
 
+.Statmodal-body p {
+margin-left: 3%;
+}
+
 .btn {
-/*👉  background-color: 	#cc1313;👈*/
 background-color: #db0606;
 border: black solid 2px;
 color: white;
@@ -133,7 +142,14 @@ background-color: white;
   border: black solid 2px;
   color: white;
   padding: 4px 25px;
-
+}
+.modal-footer {
+  justify-content: center;
+  border-top: none;
+}
+.modal-button {
+  text-align: center;
+  width: auto;
 }
 
 .back-to-top {
@@ -183,7 +199,7 @@ a.back-to-top {
 @media screen and (max-width:627px) {
   .btn {
     padding: 10px 10px;
-    width: 150px;
+    width: 200px;
     font-size: 1.15rem;
   }
 }
