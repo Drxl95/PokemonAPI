@@ -27,7 +27,7 @@ let pokemonRepository = (function () {
       listItem.appendChild(button);
       pokeUl.appendChild(listItem);
       button.addEventListener('click', function () {
-         showDetails(pokemon) && showStatModal(pokemon);
+         showDetails(pokemon)
       });
       baseStatsButton.addEventListener('click', function () {
          showStatModal(pokemon);
