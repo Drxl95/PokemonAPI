@@ -135,7 +135,13 @@ background-color: white;
 color: 	#ee1515;
 border: black 2px solid;
 }
-
+.btn-primary:not(:disabled):not(.disabled).active, 
+.btn-primary:not(:disabled):not(.disabled):active, 
+.show>.btn-primary.dropdown-toggle {
+  background-color: #db0606!important;
+  border-color: black!important;
+  
+}
 .btn-primary {
 font-size: 1.5rem;
 }
@@ -144,6 +150,7 @@ font-size: 1.5rem;
 color: 	#ee1515;
 background-color: white;
 }
+
 #search-button {
   background-color: #db0606;
   border: black solid 2px;
