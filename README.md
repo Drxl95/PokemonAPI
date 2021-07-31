@@ -17,6 +17,7 @@ __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
     * Types, also seperated buy commas
   * Top of page button for easier navigation
 
+
 ## __Design__
   * I chose to make this app appear someonewhat "animated" as this is the nature of the TV show.  I stuck with solid color(Pokemon-themed obviously) and didn't want to implement any realistic images or detailing.  
   * The close buttons are round to represent the Pokemon balls seen in the show.  

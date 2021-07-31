@@ -1,5 +1,3 @@
-
-
 let pokemonRepository = (function () {
    let pokemonList = [];
    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -13,11 +11,12 @@ let pokemonRepository = (function () {
       return pokemonList;
    }
 
+   const pokeUl = document.querySelector('.list-group');
+   const baseStatsButton = document.querySelector('#base-stats-button');
+   let currentPokemon;
    function addListItem(pokemon) {
-      let pokeUl = document.querySelector('.list-group');
       let listItem = document.createElement('li');
       let button = document.createElement('button');
-      let baseStatsButton = document.querySelector('#base-stats-button');
       button.innerText = pokemon.name;
       button.classList.add('btn');
       button.classList.add('btn-primary');
@@ -26,14 +25,13 @@ let pokemonRepository = (function () {
       button.setAttribute("data-toggle", "modal");
       listItem.appendChild(button);
       pokeUl.appendChild(listItem);
-      button.addEventListener('click', function () {
-         showDetails(pokemon)
-      });
-      baseStatsButton.addEventListener('click', function () {
-         showStatModal(pokemon);
+      button.addEventListener('click', function () { //saves pokemon clicked
+         showDetails(pokemon);
+         currentPokemon = pokemon;
       });
    }
 
+   baseStatsButton.addEventListener('click', showStatModal);
 
    function loadList() {
       return fetch(apiUrl).then(function (response) {
@@ -87,7 +85,7 @@ let pokemonRepository = (function () {
       return fetch(url).then(function (response) {
          return response.json();
       }).then(function (details) {
-         //add details to stats
+         //add details to stats via .map()
          item.stats = details.stats.map(({ base_stat, stat: { name } }) =>
             `${name}: ${base_stat}`).join("<br/>")
 
@@ -100,7 +98,7 @@ let pokemonRepository = (function () {
 
    function showDetails(item) {
       pokemonRepository.loadDetails(item).then(function () {
-         // console.log("item:", item);
+         console.log("item:", item);
          showModal(item);
       });
    }
@@ -178,7 +176,9 @@ let pokemonRepository = (function () {
          showStatModal(item);
       });
    }
-   function showStatModal(item) {
+   function showStatModal() {
+      if (!currentPokemon) return; // for some reason we have invoked the modal before clicking
+      const item = currentPokemon;
       pokemonRepository.loadStats(item).then(function () {
          // eslint-disable-next-line no-undef
          let StatmodalBody = $(".Statmodal-body");
@@ -252,15 +252,3 @@ link.addEventListener('click', function (e) {
    // Loop the animation function
    var runAnimation = setInterval(animateScroll, 16);
 });
-
-
-
-
-
-
-
-
-
-
-
-
