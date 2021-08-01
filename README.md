@@ -7,6 +7,7 @@ __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 
 <img src="img/mockup-poke.jpg" rel="app_mockup">
 <img src="img/poke-mockup.jpg" rel="app_mockup">
+<img src="img/PokemonAPI2.gif" rel="app_mockup">
 
 ## __Features__
  * A Nav/Search bar that narrows down searches. 
