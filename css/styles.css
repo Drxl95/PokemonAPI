@@ -191,8 +191,9 @@ a.back-to-top {
   text-decoration: none;
 }
 
-.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
-  color: #FFFFFF;
+.back-to-top:hover, .back-to-top:focus, .back-to-top:active {
+  background-color: #FFFFFF;
+  color: #ee1515;
 }
 
 .back-to-top.show {
