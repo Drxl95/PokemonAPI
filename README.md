@@ -30,4 +30,4 @@ __link to API__ https://pokeapi.co/api/v2/pokemon/?limit=150
 * CSS
 * Javascript
 * jQuery
-* .fetch
+* fetch()
